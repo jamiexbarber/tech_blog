@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Analog </title> <!--Circuits and Black Holes: A Love Letter/STEM Basics & Musings (old title)-->
+        <title> Non-Inverting Op-Amp </title> <!--Circuits and Black Holes: A Love Letter/STEM Basics & Musings (old title)-->
         <link href = "../css/styles.css" type="text/css" rel="stylesheet" />
     </head>
     <div id="page">
@@ -18,24 +18,32 @@
                 <!--Images circuits-->
                 <!--links to Analog Categories-->
             </p>
-            <h2>Inverting Op-Amp</h2>
+            <h2>Non-Inverting Op-Amp</h2>
             <!-- image -->
             <h3>What does it do?</h3>
             <p>
-                An ideal inverting op-amp takes a DC (or AC) signal and amplifies it based on the gain set 
-                by two resistors. The input resistance to the op-amp is set by an input resistor (R1). The
-                output resistance is ideally zero. The gain comes with a 180 degree phase shift.
+                An ideal non-inverting op-amp takes a DC (or AC) signal and amplifies the signal based on the gain set 
+                by two resistors, similar to an inverting op-amp. Unlike the inverting op-amp, the input resistance to the op-amp 
+                is set by the input resistance inherent to the op-amp.
+                <br />
+                The input resistance to the two input terminals to an op-amp is usually set by MOSFET transistors which
+                have a very high input resistance (due to the gate oxide, an insulation layer, between the gate and the 
+                channel, there is a further discussion on the MOSFET basics page).  
+                <br />
+                The first resistor (R1) is connected to the inverting terminal to ground and the second
+                resistor (R2) serves as feedback resistor which is connected to the inverting terminal as well, right before
+                (R1). The input voltage goes into the non-inverting terminal. 
+                <br />
+                The output resistance is ideally zero, and unlike with the gain of the inverting op-amp, there is no phase shift to worry about for the gain.
             </p>
             <h3>Can you help me derive the transfer function?</h3>
             <p>
-                Transfer function is language that comes from analyzing circuits in the frequency domain.
-                We'll discuss this in more detail when we discuss Bode Plots and filters. For now,
-                consider the transfer function as the ratio between the output voltage (Vout) and the
-                input voltage (Vin), or put more simply, the gain.
+                We'll define the transfer function as simply the ratio between the output voltage (Vout) and the
+                input voltage (Vin) i.e. the gain. (There will be a more detailed discussion on transfer function on the Bode plot and filters page)
                 <br />
-                To derive the transfer function (gain) for the ideal inverting op-amp, we will use
+                To derive the transfer function (gain) for the ideal non-inverting op-amp, we will use
                 Kirchoff's Current Law, which says the current flowing into a node must equal current flowing out 
-                of a node. We will also take advantage of some assumptions we can make when working with ideal op-amps,
+                of a node. We will also take advantage of familiar assumptions we can make when working with ideal op-amps,
                 shown in the equations below:
                 <br />
                 <!-- substack image of two equations,(1) virtual ground (2) no current flowing in-->
@@ -47,10 +55,12 @@
                 This is assumption is also called a virtual ground.
                 <br />
                 With this assumptions we can write the following equation which says the current flowing through R1
-                is the same as the current flowing the (R2). Then solve for the gain.
+                is the same as the current flowing the (R2). Note in this derivation, feedback current is flowing from
+                the output to the input terminal. Now, we'll solve for the gain.
                 <!--substack image of KCL derivation-->
             </p>
-            <h3>Why is the virtual ground a valid assumption?</h3>
+            <!--
+            <h3>Why is no current inser?</h3>
             <p>
                 The virtual ground is the idea that the non-inverting terminal and the inverting terminal
                 have the same voltage potential (or very close). To understand the root of this assumption, we'll
@@ -65,13 +75,17 @@
                 Negative feedback in combination with, near-infinite open-loop gain, helps ensure the inverting terminal stays close in value 
                 to the non-inverting terminal. This can proven mathmatically as well with the op-amp equivalent circuit (or the small-signal circuit).
 
-                <!--find or create the equivalent circuit and point out the relevant equation with substack-->
+                find or create the equivalent circuit and point out the relevant equation with substack
+       
             </p>
-            <h3>What applications is the inverting op-amp well-suited for?</h3>
+            -->
+            <h3>What applications is the non-inverting op-amp well-suited for?</h3>
             <p>
-                Inverting op-amps are well-suited for applications where a designer needs control
-                over the input impedance into the op-amp. This may be particularly relevant for noise calculations.
-                Additionally, an inverting op-amp makes sense if a designer needs (or is willing to work with) a 180 degree phase shift in the output.
+                Inverting op-amps are well-suited for applications where a designer needs a really high input impedance, which can particularly helpful
+                when considering voltage buffers. A typical voltage buffer is simply R1 set to open and the feedback resistor
+                set to a short. Voltage buffers help transfer the maximum amount of voltage (and therefore power) on to the next stage
+                in a circuit system. They help do this through a larger input resistance (very little current, so very little voltage drop)
+                and a very small output resistance (as much current as possible transfers over)
             </p>
         
 
