@@ -19,7 +19,13 @@
                 <!--links to Analog Categories-->
             </p>
             <h2>Non-Inverting Op-Amp</h2>
-            <!-- image -->
+            <div class="NonInvertingAmp">
+                <figure>
+                    <img src="images/NonInvertingSchematic.jpg" alt="Schematic of a Non-Inverting Op-Amp" />
+                    <br />
+                    <figcaption> Schematic of a Non-Inverting Op-Amp </figcaption>
+                </figure>
+            </div>
             <h3>What does it do?</h3>
             <p>
                 An ideal non-inverting op-amp takes a DC (or AC) signal and amplifies the signal based on the gain set 
@@ -31,14 +37,14 @@
                 channel, there is a further discussion on the MOSFET basics page).  
                 <br />
                 The first resistor (R1) is connected to the inverting terminal to ground and the second
-                resistor (R2) serves as feedback resistor which is connected to the inverting terminal as well, right before
+                resistor (R2) serves as feedback resistor connected to the inverting terminal as well, right before
                 (R1). The input voltage goes into the non-inverting terminal. 
                 <br />
                 The output resistance is ideally zero, and unlike with the gain of the inverting op-amp, there is no phase shift to worry about for the gain.
             </p>
             <h3>Can you help me derive the transfer function?</h3>
             <p>
-                We'll define the transfer function as simply the ratio between the output voltage (Vout) and the
+                We'll define the transfer function as simply the ratio of the output voltage (Vout) relative to the
                 input voltage (Vin) i.e. the gain. (There will be a more detailed discussion on transfer function on the Bode plot and filters page)
                 <br />
                 To derive the transfer function (gain) for the ideal non-inverting op-amp, we will use
@@ -46,7 +52,13 @@
                 of a node. We will also take advantage of familiar assumptions we can make when working with ideal op-amps,
                 shown in the equations below:
                 <br />
-                <!-- substack image of two equations,(1) virtual ground (2) no current flowing in-->
+                <div class="IdealOpAmpEqs">
+                    <figure>
+                        <img src="images/IdealOpsAssump.jpg" alt="Two Ideal Op-Amp Assumptions" />
+                        <br />
+                        <figcaption> Two Ideal Op-Amp Assumptions </figcaption>
+                    </figure>
+                </div>
                 The first assumption says the input resistance to each terminal is so high, that we can assume
                 there is no current flowing into either terminal.
                 <br />
@@ -57,28 +69,47 @@
                 With this assumptions we can write the following equation which says the current flowing through R1
                 is the same as the current flowing the (R2). Note in this derivation, feedback current is flowing from
                 the output to the input terminal. Now, we'll solve for the gain.
-                <!--substack image of KCL derivation-->
+                <div class="NonInvertingCurrent">
+                    <figure>
+                        <img src="images/NonInverting_wCurrent.jpg" alt="Non-Inverting Op-Amp with Current" />
+                        <br />
+                        <figcaption> Labeling the Current Flow for the Inverting Op-Amp </figcaption>
+                    </figure>
+                </div>
+                <div class="NonInvertingDerive">
+                    <figure>
+                        <img src="images/NonInvertingGainDerive.jpg" alt="Derivation for the NonInverting Op-Amp" />
+                        <br />
+                        <figcaption> Derivation of Gain for the Non-Inverting Op-Amp </figcaption>
+                    </figure>
+                </div>
+                <div class="NonInvertingWaveform">
+                    <figure>
+                        <img src="images/NonInvertingGraphWaveform.jpg" alt="Waveform of NonInverting Op-Amp" />
+                        <br />
+                        <figcaption> Waveform for the Non-Inverting Op-Amp. Note, that the output is in phase with and double the input. </figcaption>
+                    </figure>
+                </div>
             </p>
-            <!--
-            <h3>Why is no current inser?</h3>
+            <h3>If the virtual ground didn't exists, what can designers do to help minimize the voltage drop between V<sub>+</sub> and V<sub>-</sub></h3>
             <p>
                 The virtual ground is the idea that the non-inverting terminal and the inverting terminal
-                have the same voltage potential (or very close). To understand the root of this assumption, we'll
-                introduce another ideal characteristic, very large open-loop gain. Open-loop gain is gain inherent to 
-                the op-amp, it's the gain of the op-amp without the feedback resistor (R2) connected. It's usually on
-                the order of 10<sup>4</sup> or 10<sup>5</sup>.
+                have the same voltage potential (or very close). You can read more about it <a href = "AnalogHomepage.html/#virtualground">here</a>. 
+                Note that virtual ground is an assumption made for <em>ideal</em> Op-Amps. In reality, the two terminals are not exactly the same
+                and differ from each other by some voltage offset. We will consider input and output voltage offset in a later article.
                 <br />
-                This type of gain from open-loop would lead to op-amp instability if left unchecked. Designers use negative feedback
-                (connecting the output to the inverting terminal through a feedback resistor (R2)) to stabalize the amplifier
-                and ensure the output voltage is within the available range (as supplied by the + and - power supplies or the rails)
+                For now, consider the additional current that the negative terminal would see, just by being connected to two resistors. We can offset that
+                additional current (which leads to the additional voltage potential) by adding a third resistor.
                 <br />
-                Negative feedback in combination with, near-infinite open-loop gain, helps ensure the inverting terminal stays close in value 
-                to the non-inverting terminal. This can proven mathmatically as well with the op-amp equivalent circuit (or the small-signal circuit).
+                If we assume both R1 and R2 are tied to ground, together they would have an equivalent resistance of two resistors in parallel.
+                We could place that equivalent resistance at non-inverting terminal, as R3. Below are two examples of how to configure with each Op-Amp.
+                Just be careful about the size of R3 relative to the input bias currents of the Op-Amp, if the resistor is too large,
+                adding it in may wreck Op-Amp performance.
+                
+                <!-- where to put R3 picture? -->
 
-                find or create the equivalent circuit and point out the relevant equation with substack
        
             </p>
-            -->
             <h3>What applications is the non-inverting op-amp well-suited for?</h3>
             <p>
                 Inverting op-amps are well-suited for applications where a designer needs a really high input impedance, which can particularly helpful

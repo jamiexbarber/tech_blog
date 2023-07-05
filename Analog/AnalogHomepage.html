@@ -19,7 +19,13 @@
                 <!--links to Analog Categories-->
             </p>
             <h2>Inverting Op-Amp</h2>
-            <!-- image -->
+            <div class="InvertingAmp">
+            <figure>
+                <img src="images/InvertingAmpSchematic.jpg" alt="Schematic of an Inverting Op-Amp" />
+                <br />
+                <figcaption> Schematic of an Inverting Op-Amp </figcaption>
+            </figure>
+            </div>
             <h3>What does it do?</h3>
             <p>
                 An ideal inverting op-amp takes a DC (or AC) signal and amplifies it based on the gain set 
@@ -38,7 +44,13 @@
                 of a node. We will also take advantage of some assumptions we can make when working with ideal op-amps,
                 shown in the equations below:
                 <br />
-                <!-- substack image of two equations,(1) virtual ground (2) no current flowing in-->
+                <div class="IdealOpAmpEqs">
+                    <figure>
+                        <img src="images/IdealOpsAssump.jpg" alt="Two Ideal Op-Amp Assumptions" />
+                        <br />
+                        <figcaption> Two Ideal Op-Amp Assumptions </figcaption>
+                    </figure>
+                </div>
                 The first assumption says the input resistance to each terminal is so high, that we can assume
                 there is no current flowing into either terminal.
                 <br />
@@ -47,10 +59,30 @@
                 This is assumption is also called a virtual ground.
                 <br />
                 With this assumptions we can write the following equation which says the current flowing through R1
-                is the same as the current flowing the (R2). Then solve for the gain.
-                <!--substack image of KCL derivation-->
+                is the same as the current flowing the (R2). Then solve for the gain. Note, current flows from high potential to low.
+                <div class="InvertingCurrent">
+                    <figure>
+                        <img src="images/InvertingAmp_wCurrent2.jpg" alt="Op-Amp with Current" />
+                        <br />
+                        <figcaption> Labeling the Current Flow for the Inverting Op-Amp </figcaption>
+                    </figure>
+                </div>
+                <div class="InvertingDerive">
+                    <figure>
+                        <img src="images/InvertingGainDerive.jpg" alt="Derivation for the Inverting Op-Amp" />
+                        <br />
+                        <figcaption> Derivation of Gain for the Inverting Op-Amp </figcaption>
+                    </figure>
+                </div>
+                <div class="InvertingWaveform">
+                    <figure>
+                        <img src="images/InvertingGraphWaveform.jpg" alt="Waveform of Inverting Op-Amp" />
+                        <br />
+                        <figcaption> Waveform for the Inverting Op-Amp. Note, that the output is 180 degree out of phase with the input. </figcaption>
+                    </figure>
+                </div>
             </p>
-            <h3>Why is the virtual ground a valid assumption?</h3>
+            <h3 id="virtualground">Why is the virtual ground a valid assumption?</h3>
             <p>
                 The virtual ground is the idea that the non-inverting terminal and the inverting terminal
                 have the same voltage potential (or very close). To understand the root of this assumption, we'll
@@ -67,7 +99,7 @@
 
                 <!--find or create the equivalent circuit and point out the relevant equation with substack-->
             </p>
-            <h3>What applications is the inverting op-amp well-suited for?</h3>
+            <h3>What applications is the Inverting Op-Amp well-suited for?</h3>
             <p>
                 Inverting op-amps are well-suited for applications where a designer needs control
                 over the input impedance into the op-amp. This may be particularly relevant for noise calculations.
