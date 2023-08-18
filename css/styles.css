@@ -1,7 +1,15 @@
 body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #6D6875;
 }
-h3 {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+#header,#logo, #navigation, #feature, .grid-25 {
+    background-color:#FFB4A2;
+    margin: 20px;
+    padding: 10px 0px 5px 0px;
+}
+
+li {
+    display: inline;
+    padding: 5px;
 }
