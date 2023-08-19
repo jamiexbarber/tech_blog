@@ -4,14 +4,13 @@ body {
     height: 1000px;
     color:#000000;
     background-color: #FAEDCD;
-    background-image: -moz-linear-gradient(#FAEDCD,#F25C54);
-    background-image: -webkit-linear-gradient(#FAEDCD,#F25C54);
+    background-image: -moz-linear-gradient( #E3D0D8,#827081);
+    background-image: -webkit-linear-gradient(#E3D0D8,#827081);
 }
 nav{
     
-    /*border-top: 2px dotted #000000;
-    border-bottom:2px dotted #000000; */
-    background-color: #FAEDCD;  
+    border-bottom:2px solid #000000;
+    background-color: #E3D0D8;  
 }
 a {
     color: #000000;
@@ -28,15 +27,16 @@ li {
     padding: 20px;
 }
 #feature{
-    width: auto;
-    height: auto;
-    background-color: #fffaed;
-    background-image: url(../images/fia-yang-8yF_140vczg-unsplash.jpg);
+
+    background-color: #E3D0D8;
+    background-image: url(../images/okeykat-hS6VQy0ckvY-unsplash.jpg);
     background-repeat: no-repeat;
-    background-size: 50%;
-    background-attachment: fixed;
-    background-position: top right;
+    background-size: contain;
+    background-position: right;
+    border-radius: 25%;
+    height: 85vh;
     text-align: left;
+
 /*Figure out the correct way to do the banner with half the background picture (or whole picture?) Do I need the grid?*/
 /*Plan out homepage, document things you need to learn*/
 /*Plan out landing pages, document what you need to learn*/
